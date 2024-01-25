@@ -54,8 +54,11 @@ class CoffeeMachine:
   def refund_amount(self, paid_amount, drink):
     to_refund =  paid_amount - MENU[drink]["cost"]
     in_quaters = to_refund  % 25
-    in_nickel = (to_refund - 
-    print("Here is your Change : {to_refund % 0.25}")
+    in_dime = (to_refund - 25 * in_quaters) % 10
+    in_nickel = (to_refund - 25 * in_quaters - 10 * in_dime) % 5
+    in_pennies = (to_refund - 25 * in_quaters - 10 * in_dime - 5 * in_nickel)
+    
+    print(f"Here is your Change : {in_quaters}quater, {in_dime}dime, {in_nickel}nickel, {in_pennies}penny")
       
 
 print("Welcome to the coffee machine!")
