@@ -31,3 +31,34 @@ resources = {
 }
 
 
+class CoffeeMachine:
+  def __init__(self):
+    self.money = 0
+    self.resources = resources
+
+  def get_status(self):
+    for ingredient in self.resources:
+      print(f"{ingredient}: self.resources[ingredient]")
+
+  def manage_money(self, cost):
+    self.money += cost
+
+  def convert_money(self, penny, dime, nickel, quarter):
+    self.money += 0.01 * penny + 0.1 * dime + 0.05 * nickel + 0.25 * quarter
+
+  def check_resoureces(self, drink):
+    for ingredient in MENU[drink]:
+      if MENU[drink][ingredient] > self.resources[ingredient]:
+        print(f"Sorry there is not enough {ingredient}")
+
+  def refund_amount(self, paid_amount, drink):
+    to_refund =  paid_amount - MENU[drink]["cost"]
+    in_quaters = to_refund  % 25
+    in_nickel = (to_refund - 
+    print("Here is your Change : {to_refund % 0.25}")
+      
+
+print("Welcome to the coffee machine!")
+user = input("What would you like? (espresso/latte/cappuccino/):")
+
+
